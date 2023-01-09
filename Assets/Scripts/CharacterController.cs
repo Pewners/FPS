@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    float rotation = 0.0f;
-    float camRotation = 0.0f;
-    float rotationSpeed = 2.0f;
-    float camRotationSpeed = 1.5f;
-    GameObject cam;
+    public float sensX;
+    public float sensY;
 
-    // Start is called before the first frame update
-    void Start()
+    public Transform orientation;
+
+    float xRotation;
+    float yRotation;
+
+    private void Start()
     {
+        // make cursor invisible and unmoveable
         Cursor.lockState = CursorLockMode.Locked;
-
-        cam = GameObject.Find("Main Camera");
+        Cursor.visible = false;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        rotation = rotation + Input.GetAxis("Mouse X") * rotationSpeed;
-        transform.rotation = Quaternion.Euler(new Vector3(0.0f, rotation, 0.0f));
+        // get mouse input
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
-        camRotation = camRotation + Input.GetAxis("Mouse Y") * camRotationSpeed;
-        cam.transform.localRotation = Quaternion.Euler(new Vector3(Mathf.Clamp(-camRotation, -45f, 30f), -90f, 0.0f));
+        yRotation += mouseX;
+        //yRotation += Mathf.Clamp(xRotation, -120f, -60f);
+
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -20f, 20f);
+
+        // rotate cam and orientation
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, yRotation, xRotation);
     }
 }
