@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
     public float sensX;
     public float sensY;
@@ -28,7 +28,7 @@ public class CharacterController : MonoBehaviour
         //yRotation += Mathf.Clamp(xRotation, -120f, -60f);
 
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -20f, 20f);
+        xRotation = Mathf.Clamp(xRotation, 10f, 40f);
 
         // rotate cam and orientation
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);

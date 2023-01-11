@@ -22,6 +22,11 @@ public class MainMenu : MonoBehaviour
 		Debug.Log("Hard");
 	}
 
+	public void ReadMe()
+    {
+		//SceneManager.LoadScene(ReadMe);
+    }
+
 	public void QuitGame()
 	{
 		Debug.Log("Quit");
