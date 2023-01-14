@@ -14,6 +14,12 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
+
+        yRotation = transform.rotation.eulerAngles.y;
+        xRotation = transform.rotation.eulerAngles.x;
+
+        Debug.Log(transform.rotation.eulerAngles);
+
         // make cursor invisible and unmoveable
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -25,7 +31,7 @@ public class CameraController : MonoBehaviour
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
         yRotation += mouseX;
-        //yRotation += Mathf.Clamp(xRotation, -120f, -60f);
+        //yRotation += Mathf.Clamp(yRotation, -120f, -60f);
 
         xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, 10f, 40f);

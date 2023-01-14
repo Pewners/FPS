@@ -5,6 +5,7 @@ using UnityEngine;
 public class Hit : MonoBehaviour
 {
     ScoreManager sm;
+    public GameObject target;
 
     private void Start()
     {
@@ -18,6 +19,9 @@ public class Hit : MonoBehaviour
         {
             sm.score++;
             Destroy(gameObject);
+
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-382, 310), 260, Random.Range(790, 2026));
+            Instantiate(target, randomSpawnPosition, Quaternion.identity);
         }
     }
 }
