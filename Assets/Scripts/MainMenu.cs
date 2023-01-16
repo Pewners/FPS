@@ -12,20 +12,18 @@ public class MainMenu : MonoBehaviour
 	
 	public void Medium()
 	{
-		//SceneManager.LoadScene(Medium);
-		Debug.Log("Medium");
+		SceneManager.LoadScene(2);
 	}
 	
 	public void Hard()
 	{
-		//SceneManager.LoadScene(Hard);
-		Debug.Log("Hard");
+		SceneManager.LoadScene(3);
 	}
 
-	public void ReadMe()
+	public void Menu()
     {
-		//SceneManager.LoadScene(ReadMe);
-    }
+		SceneManager.LoadScene(0);
+	}
 
 	public void QuitGame()
 	{

@@ -22,7 +22,6 @@ public class CameraController : MonoBehaviour
 
         // make cursor invisible and unmoveable
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
     }
     void Update()
     {

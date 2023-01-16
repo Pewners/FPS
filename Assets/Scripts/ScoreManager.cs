@@ -21,7 +21,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (score > 9)
         {
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
         }
     }
 }
